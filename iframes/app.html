@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梵高·星月夜</title>
+    <style>
+        *{padding:0;margin:0;}
+        html,body{margin: 0; padding: 0; box-sizing: border-box;overflow: hidden;}
+
+        .view {position: relative;width: 100vw;height: 100vh;overflow: hidden;}
+        .view video {width:100%;height:100%;object-fit:cover;}
+
+        .view .foreground-layer, .view .disc-layer, .view .background-layer {position: absolute;width: 100%;height:100%;overflow: hidden;}
+        .view .foreground-layer {z-index: 2; min-width: max-content;}
+        .view .background-layer {z-index: 0;}
+
+        .view .disc-layer {z-index: 1; opacity:1; transition: opacity 1s ease; left: 2%;bottom: -12%;top: auto; visibility: hidden;}
+        .view .disc-layer .front,.view .disc-layer .back {position: absolute;width: 60vh;height: 60vh;min-width: 500px;min-height: 500px;}
+        .view .disc-layer .front {z-index: 1;}
+        .view .disc-layer .back {z-index: 0;}
+        .view .disc-layer .thumbnail {z-index: 2;position: absolute;transform: translate3d(-50%, -50%, 0);width: 32vh;height: 32vh;border-radius: 50%;min-width: 265px;min-height: 265px;}
+        .view .disc-layer .paused,.view .disc-layer .stopped,.view .disc-layer .empty{opacity: 0.7;}
+        .rotate { animation: rotate 18s linear infinite;}
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="view">
+        <div class="foreground-layer">
+            <video src="@/assets/cover-left.webm" type="video/webm" autoplay muted loop></video>
+		    <!-- <video src="@/assets/cover-center.webm" type="video/webm" autoplay muted loop></video> -->
+        </div>
+        <div class="disc-layer">
+            <!-- @/assets -->
+            <!-- <img ref="CD" class="thumbnail" :class="actualState" :src="currentThumbnail" alt=""> -->
+            <img class="front" src="@/assets/disc1.png" alt="" ref="front">
+            <img class="back" src="@/assets/disc.png" alt="">
+        </div>
+        <div class="background-layer">
+            <video src="@/assets/bg.webm" type="video/webm" autoplay muted loop></video>
+        </div>
+    </div>
+</body>
+</html>

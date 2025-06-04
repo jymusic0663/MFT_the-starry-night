@@ -1,0 +1,10 @@
+{
+    "name": "【动态】梵高·星月夜",
+    "preview": "@/assets/preview.jpg",
+    "description": "梵高·星月夜动态主题",
+    "author": "小林囝",
+    "version": "0.0.1",
+    "iframe": {
+        "app": "@/iframes/app.html"
+    }
+}
